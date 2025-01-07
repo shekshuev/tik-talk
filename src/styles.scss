@@ -88,6 +88,7 @@ body {
 }
 
 .tt-input {
+  width: 100%;
   margin-top: 8px;
   display: block;
   border: 1px solid var(--light-color);
@@ -99,4 +100,13 @@ body {
   font-size: 14px;
   line-height: 21px;
   font-family: "JetBrains Mono", sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--light-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--dark-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
