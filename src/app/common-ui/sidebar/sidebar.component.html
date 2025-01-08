@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<img src="assets/svg/logo-small.svg" alt="" class="ml16 mb20" />
+
+<nav>
+  <ul class="main-menu-list">
+    <li *ngFor="let item of menuItems">
+      <button class="menu-item">
+        <svg [icon]="item.icon"></svg>
+        <span> {{ item.label }}</span>
+      </button>
+    </li>
+  </ul>
+</nav>
