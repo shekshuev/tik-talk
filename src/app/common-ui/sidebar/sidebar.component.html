@@ -23,3 +23,18 @@
   </a>
   <svg icon="arrow" class="to-subscribers-icon"></svg>
 </div>
+
+<footer class="sidebar__footer">
+  @if (me(); as me) { @if (me.avatarUrl) {
+  <img [src]="me.avatarUrl | imgUrl" [alt]="me.lastName" />
+  } @else {
+  <img src="/assets/svg/avatar-placeholder.svg" [alt]="me.lastName" />
+  }
+
+  <div class="medium-text username-text">{{ me.username }}</div>
+
+  <a [routerLink]="['/settings']" class="settings-btn">
+    <svg icon="settings"></svg>
+  </a>
+  }
+</footer>
