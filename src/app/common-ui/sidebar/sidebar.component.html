@@ -13,7 +13,9 @@
 
 <p class="medium-text mb20">Подписчики</p>
 
-<!-- <app-subscriber-card></app-subscriber-card> -->
+@for (profile of subscribers$ | async; track profile.id) {
+<app-subscriber-card [profile]="profile"></app-subscriber-card>
+}
 
 <div class="mt20 to-subscribers">
   <a [routerLink]="['/subscribers']" class="to-subscribers-link medium-text">
