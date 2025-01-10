@@ -32,9 +32,9 @@ export class ProfileService {
       .pipe(tap((res) => this.me.set(res)));
   }
 
-  getSubscribersShortList() {
+  getSubscribersShortList(count: number = 3) {
     return this.http
       .get<Pageable<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-      .pipe(map((res) => res.items.slice(0, 3)));
+      .pipe(map((res) => res.items.slice(0, count)));
   }
 }

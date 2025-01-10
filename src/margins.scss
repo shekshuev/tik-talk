@@ -25,3 +25,12 @@
 .ml16 {
   margin-left: 16px;
 }
+.mb32 {
+  margin-bottom: 32px;
+}
+
+.stack-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}

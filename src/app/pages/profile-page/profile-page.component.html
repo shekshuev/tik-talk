@@ -6,4 +6,40 @@
     <svg icon="settings" class="to-settings-icon"></svg>
   </a>
 </header>
+
+<main class="profile-page__body">
+  <app-post-feed></app-post-feed>
+  <div>
+    <h3 class="h6 mb16">Подписчики</h3>
+    <div class="subscribers-wrapper mb32">
+      @for (subscriber of subscribers$ | async; track subscriber.id) {
+      <a [routerLink]="['/profile', subscriber.id]">
+        @if (subscriber.avatarUrl) {
+        <img
+          class="subscriber-avatar-btn"
+          [src]="subscriber.avatarUrl | imgUrl"
+          [alt]="subscriber.lastName"
+        />
+        } @else {
+        <img
+          class="subscriber-avatar-btn"
+          src="assets/svg/avatar-placeholder.svg"
+          [alt]="subscriber.lastName"
+        />
+        }
+      </a>
+      }
+      <a class="to-subscribers-search" [routerLink]="['/search']"></a>
+    </div>
+    <h3 class="h6 mb16">Навыки</h3>
+    <div class="stack-wrapper mb32">
+      @for (tag of profile.stack; track tag) {
+      <div class="skill-tag">{{ tag }}</div>
+      }
+    </div>
+
+    <h3 class="h6 mb16">О себе</h3>
+    <p class="medium-text">{{ profile.description }}</p>
+  </div>
+</main>
 }
