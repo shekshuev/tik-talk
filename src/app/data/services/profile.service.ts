@@ -11,6 +11,7 @@ export class ProfileService {
   http = inject(HttpClient);
 
   me = signal<Profile | null>(null);
+  filteredProfiles = signal<Profile[]>([]);
 
   baseApiUrl = 'https://icherniakov.ru/yt-course/';
 
@@ -49,5 +50,13 @@ export class ProfileService {
       `${this.baseApiUrl}account/upload_image`,
       formData
     );
+  }
+
+  filterProfiles(params: Record<string, any>) {
+    return this.http
+      .get<Pageable<Profile>>(`${this.baseApiUrl}account/accounts`, {
+        params,
+      })
+      .pipe(tap((res) => this.filteredProfiles.set(res.items)));
   }
 }
