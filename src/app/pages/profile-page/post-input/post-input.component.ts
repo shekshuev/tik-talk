@@ -33,7 +33,7 @@ export class PostInputComponent {
           content: this.postText,
           authorId: this.profile()!.id,
         })
-      );
+      ).then(() => (this.postText = ''));
     }
   }
 }
